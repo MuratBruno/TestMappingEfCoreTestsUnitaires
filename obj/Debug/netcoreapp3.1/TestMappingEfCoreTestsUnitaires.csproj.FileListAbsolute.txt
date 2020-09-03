@@ -145,6 +145,7 @@ C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\ob
 C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.csproj.CopyComplete
 C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.genruntimeconfig.cache
 C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\bin\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.pdb
-C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.csproj.CoreCompileInputs.cache
 C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.dll
 C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.pdb
+C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\sharu\source\repos\TestMappingEfCore\TestMappingEfCoreTestsUnitaires\obj\Debug\netcoreapp3.1\TestMappingEfCoreTestsUnitaires.csproj.CoreCompileInputs.cache

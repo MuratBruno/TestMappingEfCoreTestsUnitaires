@@ -1,10 +1,13 @@
-﻿using Moq;
+﻿using Microsoft.EntityFrameworkCore;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestMappingEfCore.Controllers;
+using TestMappingEfCore.Data;
+using TestMappingEfCore.Helper;
 using TestMappingEfCore.Models;
 using TestMappingEfCore.Models.DonneeDAO;
 using TestMappingEfCore.Repository;
@@ -20,20 +23,28 @@ namespace TestMappingEfCore.Tests
         public ControllerTest()
         {
             //TODO : injecter
-            this.clientController = ClientController.getClientController();
+          
         }
 
         [Fact]
         public void Get_SingleClient_FindClient()
         {
+            
+
             //Arrange
-            Mock<IClientRepository> clientRepositoryMock = new Mock<IClientRepository>();
+            Mock<ClientContext> clientContextMock = new Mock<ClientContext>();
+            Mock<DbSet<ClientDAO>> mockDbSet = new Mock<DbSet<ClientDAO>>();
+            clientContextMock.Object.Clients = mockDbSet.Object;
+            ClientProvider.clientContext = clientContextMock.Object;
+
+            this.clientController = ClientProvider.getClientController();
+
             ClientDAO clientDAO = new ClientDAO();
             clientDAO.id = 1;
 
-            Task<ClientDAO> taskClient = new Task<ClientDAO>(()=> clientDAO);
-
-            clientRepositoryMock.Setup(m => m.GetById(1)).Returns(taskClient);
+            
+            clientContextMock.Setup(x => x.Set<ClientDAO>()).Returns(mockDbSet.Object);
+            mockDbSet.Setup(x => x.Find(It.IsAny<int>())).Returns(clientDAO);
 
             // Act
             ClientDTO actual = clientController.GetById(1).Value;
@@ -42,16 +53,12 @@ namespace TestMappingEfCore.Tests
             clientDTO.id = 1;
 
             // Assert
-            Xunit.Assert.Equal(clientDTO, actual);
+            Xunit.Assert.Equal(clientDTO.id, actual.id);
+            Xunit.Assert.Equal(clientDTO.nbAchat, actual.nbAchat);
 
-            Xunit.Assert.Equal(2, 2);
+
         }
 
-        [Test]
-        public void test_Add()
-        {
-            // Assert
-            NUnit.Framework.Assert.AreEqual(2, 2);
-        }
+
     }
 }
